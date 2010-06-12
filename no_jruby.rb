@@ -18,12 +18,9 @@ java_import java.awt.geom.Rectangle2D
 java_import java.awt.geom.Line2D
 
 class MyJPanel < JPanel
-	# criação do método paint_component
-	# poderiamos sobreescrever o metodo paintComponent aew mesmo
-	# teriamos que trocar o nome do metodo para paintComponent
-	# e apagar o alias abaixo
-	# só fiz dessa maneira visando respeitar a convenção ruby =D
-	def paint_component(g)
+	# criação do método paint, que ira sobreescreve
+	# o metodo original do JPanel
+	def paint(g)
 		# em ruby não faz muita diferença isso, jah q para recuperar
 		# o size não tem tanta verbosidade quanto em java xD
 		size = self.size
@@ -44,9 +41,6 @@ class MyJPanel < JPanel
 		# Desenha o texto "This is a test!"
 		g.draw_string 'This is a test!',100,150
 	end
-	# alias que irá "substituir" o método paintComponent(q precisa ser sobreescrito) 
-	# pelo método paint_component
-	alias paintComponent paint_component
 end
 
 # Cria um frame
